@@ -215,6 +215,17 @@ END OF DAY
   Learnings saved to memory → next session starts smarter
 ```
 
+## Recommended Companion: RTK
+
+PM Pilot optimizes the **input side** (compressed rules, lazy-loaded skills, structured memory). For the **output side**, pair it with [RTK (Rust Token Killer)](https://github.com/rtk-ai/rtk), which strips noise from tool outputs before they hit context.
+
+```bash
+brew install rtk
+rtk init -g --hook-only
+```
+
+Together: ~50% fewer input tokens + ~70% fewer output tokens. Significantly longer sessions before hitting limits or compaction.
+
 ## Rules (Token-Optimized)
 
 Five compressed rules that load with every message (~600 tokens total):
