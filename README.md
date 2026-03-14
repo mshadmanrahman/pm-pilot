@@ -16,6 +16,95 @@ cd pm-pilot
 # Copy skills/rules/agents to your ~/.claude/ directory
 ```
 
+## Prerequisites
+
+- **Claude Code** installed and working ([get it here](https://docs.anthropic.com/en/docs/claude-code))
+- A terminal (macOS Terminal, iTerm2, Warp, VS Code terminal, etc.)
+- An Anthropic API key or Claude Max subscription (you need this for Claude Code itself)
+
+That's it. No Node.js, no Python, no build step. PM Pilot is pure markdown.
+
+## Quick Start (5 minutes)
+
+### Step 1: Install
+
+```bash
+# Option A: As a Claude Code plugin (recommended)
+claude plugin install pm-pilot
+
+# Option B: Clone and install manually
+git clone https://github.com/mshadmanrahman/pm-pilot.git
+```
+
+If you used Option B, copy the pieces to your Claude Code directory:
+```bash
+# Copy skills, rules, agents, and commands to user-level
+cp -r pm-pilot/skills/* ~/.claude/skills/
+cp -r pm-pilot/rules/* ~/.claude/rules/
+cp -r pm-pilot/agents/* ~/.claude/agents/
+cp -r pm-pilot/commands/* ~/.claude/commands/
+
+# Create your memory directory
+mkdir -p ~/.claude/memory
+cp pm-pilot/memory/MEMORY-TEMPLATE.md ~/.claude/memory/MEMORY.md
+```
+
+### Step 2: Connect Your Tools (optional but recommended)
+
+PM Pilot works best when Claude Code has MCP servers connected. These are the most impactful:
+
+| Priority | MCP Server | What it unlocks |
+|----------|-----------|-----------------|
+| High | **Atlassian** (Jira + Confluence) | meeting-prep, weekly-status, deep-context, ask-company |
+| High | **Slack** | meeting-prep, weekly-status, deep-context |
+| High | **GitHub** | weekly-status, search-first, code-review |
+| Medium | **Gmail/Calendar** | meeting-prep |
+| Medium | **Playwright** | dogfood (browser-based QA) |
+
+You can add MCP servers in Claude Code settings or via `claude mcp add`.
+
+**No MCP servers?** PM Pilot still works. Skills like market-sizing, writing-style, tdd-workflow, and security-review work with zero external connections.
+
+### Step 3: Configure for Your Org
+
+Run the interactive setup wizard:
+```
+/configure-pm-pilot
+```
+
+Or configure manually:
+1. **Set your company name**: Edit `skills/pm-core/ask-company/SKILL.md` and replace `[YOUR_COMPANY]` in the Configuration section
+2. **Seed your memory**: Open `~/.claude/memory/MEMORY.md` and add your current projects and key stakeholders (see `examples/memory-example.md` for format)
+3. **Set your writing voice** (optional): Run the `writing-style` skill with 2-3 sample posts
+
+### Step 4: Try It
+
+Open Claude Code in any project and try these:
+
+```
+"prep for my meeting with Sarah"          → meeting briefing from Jira/Slack/Calendar
+"weekly status"                           → auto-generated accomplishment report
+"size the market for AI code assistants"  → TAM/SAM/SOM analysis
+"dogfood https://myapp.com"               → systematic QA with bug reports
+"/plan"                                   → implementation plan for any feature
+"tell me everything about Project X"      → cross-channel research synthesis
+```
+
+### Step 5: Build the Habit
+
+The more you use PM Pilot, the smarter it gets:
+
+```
+Day 1:   Memory is empty. You explain your projects.
+Day 5:   Memory has your projects, people, preferences. Less explaining.
+Day 15:  Memory has your process, lessons, patterns. Almost zero re-explaining.
+Day 30:  New sessions start with full context. You just say what to do.
+```
+
+The key is **corrections compound**. When you correct Claude, it saves a feedback memory. That correction persists forever. You never repeat yourself.
+
+---
+
 ## What's Inside
 
 ### PM Core Skills
@@ -172,6 +261,42 @@ PRs welcome. To add a skill:
 2. Follow the frontmatter format (name, description, origin, version)
 3. Include clear triggers, step-by-step procedure, and output format
 4. Keep under 200 lines
+
+## Troubleshooting
+
+### "Skills not showing up"
+Skills need a `SKILL.md` file in their directory. Verify the path:
+```bash
+ls ~/.claude/skills/meeting-prep/SKILL.md
+```
+If missing, re-copy from the pm-pilot repo. Restart Claude Code after adding skills.
+
+### "meeting-prep / weekly-status returns nothing"
+These skills need MCP servers (Jira, Slack, etc.) to pull data. Check your connected tools:
+```bash
+claude mcp list
+```
+If no MCP servers are connected, these skills will tell you what's missing.
+
+### "Memory not loading"
+MEMORY.md must be in the right location for your project:
+- **User-level** (all projects): `~/.claude/memory/MEMORY.md`
+- **Project-level** (one project): `.claude/memory/MEMORY.md` in your project root
+
+Claude Code automatically loads MEMORY.md from these locations.
+
+### "Too many tokens / context filling up"
+PM Pilot's rules use only ~950 tokens. If context is filling up:
+1. Use `strategic-compact` to compact at logical milestones
+2. Use `handoff-doc` to save state, then `/clear` and resume
+3. Offload research to sub-agents with `orchestrator`
+
+### "How do I add my own skills?"
+Create a directory under `skills/` with a `SKILL.md` inside:
+```
+skills/my-category/my-skill/SKILL.md
+```
+Use any existing skill as a template. The frontmatter (name, description, triggers) is what Claude Code uses to match your requests to the right skill.
 
 ## License
 
