@@ -15,6 +15,10 @@
   Everything a technical PM needs to ship faster with AI.
 </p>
 
+<p align="center">
+  <img src="assets/terminal-structure.png" alt="PM Pilot directory structure" width="640" />
+</p>
+
 ## Install
 
 ```bash
