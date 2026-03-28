@@ -1,8 +1,19 @@
-# PM Pilot
+<p align="center">
+  <img src="assets/hero.png" alt="PM Pilot — The PM toolkit for Claude Code" width="720" />
+</p>
 
-The product management toolkit for Claude Code. Built for PMs who code.
+<p align="center">
+  <a href="https://github.com/mshadmanrahman/pm-pilot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License" /></a>
+  <a href="https://github.com/mshadmanrahman/pm-pilot/stargazers"><img src="https://img.shields.io/github/stars/mshadmanrahman/pm-pilot?style=flat-square" alt="Stars" /></a>
+  <img src="https://img.shields.io/badge/claude_code-plugin-black?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Claude Code Plugin" />
+  <img src="https://img.shields.io/badge/skills-20-orange?style=flat-square" alt="20 Skills" />
+  <img src="https://img.shields.io/badge/agents-5-purple?style=flat-square" alt="5 Agents" />
+</p>
 
-**20 skills, 5 rules, 5 agents, 4 slash commands.** Everything a technical PM needs to ship faster with AI.
+<p align="center">
+  <b>20 skills, 5 rules, 5 agents, 4 slash commands.</b><br/>
+  Everything a technical PM needs to ship faster with AI.
+</p>
 
 ## Install
 
