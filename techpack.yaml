@@ -1,0 +1,105 @@
+schemaVersion: 1
+
+identifier: mshadmanrahman/pm-pilot
+name: PM Pilot
+description: "The PM toolkit for Claude Code. 20 skills, 5 rules, 5 agents for product managers who code."
+author: Shadman Rahman
+version: 1.0.0
+license: MIT
+
+components:
+  # Skills - PM Core
+  - skill:
+      source: skills/pm-core/ask-company
+      destination: ask-company
+  - skill:
+      source: skills/pm-core/deep-context
+      destination: deep-context
+  - skill:
+      source: skills/pm-core/dogfood
+      destination: dogfood
+  - skill:
+      source: skills/pm-core/market-sizing
+      destination: market-sizing
+  - skill:
+      source: skills/pm-core/meeting-prep
+      destination: meeting-prep
+  - skill:
+      source: skills/pm-core/weekly-status
+      destination: weekly-status
+
+  # Skills - Content
+  - skill:
+      source: skills/content/market-research
+      destination: market-research
+  - skill:
+      source: skills/content/writing-style
+      destination: writing-style
+  - skill:
+      source: skills/content/writing-substack
+      destination: writing-substack
+
+  # Skills - Dev
+  - skill:
+      source: skills/dev/search-first
+      destination: search-first
+  - skill:
+      source: skills/dev/security-review
+      destination: security-review
+  - skill:
+      source: skills/dev/tdd-workflow
+      destination: tdd-workflow
+  - skill:
+      source: skills/dev/verification-loop
+      destination: verification-loop
+
+  # Skills - Productivity
+  - skill:
+      source: skills/productivity/handoff-doc
+      destination: handoff-doc
+  - skill:
+      source: skills/productivity/manifest-reader
+      destination: manifest-reader
+  - skill:
+      source: skills/productivity/meta-observer
+      destination: meta-observer
+  - skill:
+      source: skills/productivity/orchestrator
+      destination: orchestrator
+  - skill:
+      source: skills/productivity/session-init
+      destination: session-init
+  - skill:
+      source: skills/productivity/strategic-compact
+      destination: strategic-compact
+
+  # Agents
+  - agent:
+      source: agents/build-error-resolver.md
+      destination: build-error-resolver.md
+  - agent:
+      source: agents/code-reviewer.md
+      destination: code-reviewer.md
+  - agent:
+      source: agents/file-analyzer.md
+      destination: file-analyzer.md
+  - agent:
+      source: agents/planner.md
+      destination: planner.md
+  - agent:
+      source: agents/tdd-guide.md
+      destination: tdd-guide.md
+
+  # Commands
+  - command:
+      source: commands/code-review.md
+      destination: code-review.md
+  - command:
+      source: commands/plan.md
+      destination: plan.md
+  - command:
+      source: commands/tdd.md
+      destination: tdd.md
+  - command:
+      source: commands/verify.md
+      destination: verify.md
