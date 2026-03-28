@@ -1,105 +1,180 @@
 schemaVersion: 1
-
-identifier: mshadmanrahman/pm-pilot
-name: PM Pilot
-description: "The PM toolkit for Claude Code. 20 skills, 5 rules, 5 agents for product managers who code."
-author: Shadman Rahman
-version: 1.0.0
-license: MIT
+identifier: pm-pilot
+displayName: PM Pilot
+description: "The PM toolkit for Claude Code. 20 skills, 5 agents, 4 commands for product managers who code."
+author: "Shadman Rahman"
 
 components:
   # Skills - PM Core
-  - skill:
+  - id: ask-company
+    description: Enterprise knowledge assistant for org structure and strategy
+    skill:
       source: skills/pm-core/ask-company
       destination: ask-company
-  - skill:
+
+  - id: deep-context
+    description: Cross-channel research across connected systems
+    skill:
       source: skills/pm-core/deep-context
       destination: deep-context
-  - skill:
+
+  - id: dogfood
+    description: Systematically test a web app to find bugs and UX issues
+    skill:
       source: skills/pm-core/dogfood
       destination: dogfood
-  - skill:
+
+  - id: market-sizing
+    description: Calculate TAM, SAM, SOM for market sizing analysis
+    skill:
       source: skills/pm-core/market-sizing
       destination: market-sizing
-  - skill:
+
+  - id: meeting-prep
+    description: Pre-meeting context gathering across all connected systems
+    skill:
       source: skills/pm-core/meeting-prep
       destination: meeting-prep
-  - skill:
+
+  - id: weekly-status
+    description: Auto-generate weekly accomplishment reports
+    skill:
       source: skills/pm-core/weekly-status
       destination: weekly-status
 
   # Skills - Content
-  - skill:
+  - id: market-research
+    description: Competitive analysis and industry intelligence
+    skill:
       source: skills/content/market-research
       destination: market-research
-  - skill:
+
+  - id: writing-style
+    description: Personal writing voice calibration for all content
+    skill:
       source: skills/content/writing-style
       destination: writing-style
-  - skill:
+
+  - id: writing-substack
+    description: Create engaging Substack posts and notes
+    skill:
       source: skills/content/writing-substack
       destination: writing-substack
 
   # Skills - Dev
-  - skill:
+  - id: search-first
+    description: Research before coding workflow
+    skill:
       source: skills/dev/search-first
       destination: search-first
-  - skill:
+
+  - id: security-review
+    description: Security vulnerability detection and remediation
+    skill:
       source: skills/dev/security-review
       destination: security-review
-  - skill:
+
+  - id: tdd-workflow
+    description: Test-driven development with write-tests-first methodology
+    skill:
       source: skills/dev/tdd-workflow
       destination: tdd-workflow
-  - skill:
+
+  - id: verification-loop
+    description: Comprehensive verification system for sessions
+    skill:
       source: skills/dev/verification-loop
       destination: verification-loop
 
   # Skills - Productivity
-  - skill:
+  - id: handoff-doc
+    description: Portable handoff documents for session continuity
+    skill:
       source: skills/productivity/handoff-doc
       destination: handoff-doc
-  - skill:
+
+  - id: manifest-reader
+    description: Read and summarize sub-agent manifest files
+    skill:
       source: skills/productivity/manifest-reader
       destination: manifest-reader
-  - skill:
+
+  - id: meta-observer
+    description: Log user corrections and emerging patterns
+    skill:
       source: skills/productivity/meta-observer
       destination: meta-observer
-  - skill:
+
+  - id: orchestrator
+    description: Wave-based parallel agent execution
+    skill:
       source: skills/productivity/orchestrator
       destination: orchestrator
-  - skill:
+
+  - id: session-init
+    description: Lightweight session initialization from manifests and handoffs
+    skill:
       source: skills/productivity/session-init
       destination: session-init
-  - skill:
+
+  - id: strategic-compact
+    description: Context compaction at logical intervals
+    skill:
       source: skills/productivity/strategic-compact
       destination: strategic-compact
 
   # Agents
-  - agent:
+  - id: build-error-resolver
+    description: Fix build and type errors with minimal diffs
+    agent:
       source: agents/build-error-resolver.md
       destination: build-error-resolver.md
-  - agent:
+
+  - id: code-reviewer
+    description: Code review for quality, security, and maintainability
+    agent:
       source: agents/code-reviewer.md
       destination: code-reviewer.md
-  - agent:
+
+  - id: file-analyzer
+    description: Analyze and summarize file contents
+    agent:
       source: agents/file-analyzer.md
       destination: file-analyzer.md
-  - agent:
+
+  - id: planner
+    description: Implementation planning for complex features
+    agent:
       source: agents/planner.md
       destination: planner.md
-  - agent:
+
+  - id: tdd-guide
+    description: Test-driven development enforcement agent
+    agent:
       source: agents/tdd-guide.md
       destination: tdd-guide.md
 
   # Commands
-  - command:
+  - id: code-review-cmd
+    description: Run code review on recent changes
+    command:
       source: commands/code-review.md
       destination: code-review.md
-  - command:
+
+  - id: plan-cmd
+    description: Create implementation plan before coding
+    command:
       source: commands/plan.md
       destination: plan.md
-  - command:
+
+  - id: tdd-cmd
+    description: Enforce TDD workflow
+    command:
       source: commands/tdd.md
       destination: tdd.md
-  - command:
+
+  - id: verify-cmd
+    description: Verify implementation works end-to-end
+    command:
       source: commands/verify.md
       destination: verify.md
