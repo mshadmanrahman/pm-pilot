@@ -1,7 +1,7 @@
 schemaVersion: 1
 identifier: pm-pilot
 displayName: PM Pilot
-description: "The PM toolkit for Claude Code. 20 skills, 5 agents, 4 commands for product managers who code."
+description: "The PM toolkit for Claude Code. 24 skills, 5 rules, 5 agents, 4 commands for product managers who code."
 author: "Shadman Rahman"
 
 components:
@@ -41,6 +41,35 @@ components:
     skill:
       source: skills/pm-core/weekly-status
       destination: weekly-status
+  - id: lenny-podcast
+    description: PM advisor drawing from 269+ Lenny's Podcast episodes
+    skill:
+      source: skills/pm-core/lenny-podcast
+      destination: lenny-podcast
+
+  - id: prd
+    description: Generate PRDs, briefs, one-pagers, and RFCs at variable depth
+    skill:
+      source: skills/pm-core/prd
+      destination: prd
+
+  - id: prioritize
+    description: Score and rank features with RICE, ICE, WSJF, MoSCoW, Kano, and more
+    skill:
+      source: skills/pm-core/prioritize
+      destination: prioritize
+
+  - id: synthesize-interviews
+    description: Turn raw interviews into themes, pain points, and recommendations
+    skill:
+      source: skills/pm-core/synthesize-interviews
+      destination: synthesize-interviews
+
+  - id: critique
+    description: Pressure-test any document for logic, assumptions, and completeness
+    skill:
+      source: skills/pm-core/critique
+      destination: critique
 
   # Skills - Content
   - id: market-research

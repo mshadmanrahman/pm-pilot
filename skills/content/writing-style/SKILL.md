@@ -1,3 +1,11 @@
+---
+name: writing-style
+description: |
+  Voice profile configuration and application for consistent writing. Configure once with 2-3 samples, apply everywhere. Triggers on: "writing style", "voice profile", "apply my voice", writing long-form content.
+origin: pm-pilot
+version: 1.0.0
+---
+
 # Writing Style
 
 TEMPLATE for voice-consistent writing. Configure once, apply everywhere.

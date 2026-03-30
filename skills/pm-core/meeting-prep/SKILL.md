@@ -27,6 +27,9 @@ If no input, check Google Calendar MCP for the next upcoming meeting and prep fo
 
 ## Execution
 
+### Context Check
+Before gathering, read `context/company.md` and `context/personas.md` if they exist. Use for framing output. After completing the briefing, offer to update context files with any new knowledge about people, projects, or company priorities discovered during research.
+
 ### Step 0: Resolve Target
 
 - Person name given: use as search target across all sources.

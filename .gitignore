@@ -1,1 +1,4 @@
 .DS_Store
+
+# Output artifacts
+output/

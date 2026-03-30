@@ -1,3 +1,11 @@
+---
+name: writing-substack
+description: |
+  Platform-optimized Substack Notes creation. 500-char limit, hook-driven, engagement-focused. Triggers on: "write a Substack Note", "Substack content", "Note ideas".
+origin: pm-pilot
+version: 1.0.0
+---
+
 # Writing Substack Notes
 
 Create Substack Notes: short, punchy, engagement-optimized.

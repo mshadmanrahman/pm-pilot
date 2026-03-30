@@ -12,13 +12,15 @@ triggers:
 
 # TDD Workflow
 
-Enforce test-driven development. No implementation without a failing test first.
+Detailed test-driven development procedure with framework-specific commands.
+
+**Relationship to tdd-guide agent**: The `/tdd` command dispatches the `tdd-guide` agent, which enforces the loop. This skill provides the detailed procedure and framework-specific commands that the agent references.
 
 ## When to Use
 
-- Any new feature implementation
-- Any bug fix (write test that reproduces the bug first)
-- Any refactoring (ensure tests exist before changing code)
+- Referenced by tdd-guide agent during enforcement
+- Directly when user needs framework-specific test commands
+- Any new feature, bug fix, or refactoring that needs test coverage
 
 ## Procedure
 

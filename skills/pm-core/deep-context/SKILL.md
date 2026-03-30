@@ -27,6 +27,9 @@ Optional:
 
 ## Execution
 
+### Context Check
+Before searching, read all four context files (`context/company.md`, `context/product.md`, `context/competitors.md`, `context/personas.md`) if they exist. Existing context informs search terms and avoids redundant research. After synthesis, offer to update context files with new knowledge discovered.
+
 ### Step 1: Expand Search Terms
 
 Before searching, generate 3-5 related search terms. Topics often have aliases, abbreviations, or related concepts.

@@ -6,12 +6,12 @@
   <a href="https://github.com/mshadmanrahman/pm-pilot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License" /></a>
   <a href="https://github.com/mshadmanrahman/pm-pilot/stargazers"><img src="https://img.shields.io/github/stars/mshadmanrahman/pm-pilot?style=flat-square" alt="Stars" /></a>
   <img src="https://img.shields.io/badge/claude_code-plugin-black?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Claude Code Plugin" />
-  <img src="https://img.shields.io/badge/skills-20-orange?style=flat-square" alt="20 Skills" />
+  <img src="https://img.shields.io/badge/skills-24-orange?style=flat-square" alt="24 Skills" />
   <img src="https://img.shields.io/badge/agents-5-purple?style=flat-square" alt="5 Agents" />
 </p>
 
 <p align="center">
-  <b>20 skills, 5 rules, 5 agents, 4 slash commands.</b><br/>
+  <b>24 skills, 5 rules, 5 agents, 4 slash commands.</b><br/>
   Everything a technical PM needs to ship faster with AI.
 </p>
 
@@ -133,6 +133,10 @@ The key is **corrections compound**. When you correct Claude, it saves a feedbac
 | `ask-company` | "who owns X" | Enterprise knowledge assistant (configure for your org) |
 | `dogfood` | "dogfood this app" | Systematic QA with Playwright: finds bugs, produces repro steps |
 | `lenny-podcast` | "what does Lenny say about X" | Search 269+ PM podcast episodes for advice |
+| `prd` | "write a PRD for X" | Generate one-pagers, briefs, full PRDs, or RFCs at the right depth |
+| `prioritize` | "rank these features" | Score and rank with RICE, ICE, WSJF, MoSCoW, Kano, Value/Effort, Weighted |
+| `synthesize-interviews` | "synthesize these interviews" | Turn raw interviews into themes, pain points, and recommendations |
+| `critique` | "critique this doc" | Pressure-test any document for logic, assumptions, and completeness |
 
 ### Productivity Skills
 
@@ -275,7 +279,7 @@ Follow the SKILL.md format from any existing skill as a template.
 ## Philosophy
 
 1. **Memory over transcripts.** A 200-line MEMORY.md beats a 50K-token session replay.
-2. **Skills load on demand.** 20 skills, zero startup cost.
+2. **Skills load on demand.** 24 skills, zero startup cost.
 3. **Rules are compressed.** 600 tokens, not 6,000.
 4. **Research before coding.** Search first, build second.
 5. **Every session compounds.** Corrections become rules. Patterns become skills.

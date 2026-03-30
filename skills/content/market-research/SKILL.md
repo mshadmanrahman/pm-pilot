@@ -1,3 +1,11 @@
+---
+name: market-research
+description: |
+  Competitive analysis and market research with source attribution. Parallel fan-out across web, review sites, and news. Triggers on: "market research", "competitive analysis", "competitor comparison".
+origin: pm-pilot
+version: 1.0.0
+---
+
 # Market Research
 
 Competitive analysis with source attribution.
@@ -53,8 +61,9 @@ WebSearch, Exa, WebFetch, any available research MCP tools.
 ```
 
 ## Rules
-- Every claim must have a cited source.
-- Distinguish facts from inference. Label speculation explicitly.
+- Every claim must have a cited source. Tag with `[Source: {url or name}]`.
+- Distinguish facts from inference. Tag speculation with `[Assumption]`.
+- Tag metrics without verification with `[Needs data]`.
 - Prefer primary sources (company sites, SEC filings) over secondary (blog posts, tweets).
 - Date all findings; markets shift fast.
 - If data is unavailable, say so. Never fabricate.

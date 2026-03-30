@@ -29,6 +29,9 @@ Optional:
 
 ## Execution
 
+### Context Check
+Before sizing, read `context/product.md` and `context/competitors.md` if they exist. Existing product positioning and competitive landscape inform market definition and assumptions. After completing the analysis, offer to update `context/competitors.md` with market landscape findings.
+
 ### Step 1: Define the Market
 
 Clarify with the user if ambiguous:
@@ -138,5 +141,6 @@ Cross-check top-down vs bottom-up (should be within 30%). Flag if they diverge s
 - **Show your math**: Every calculation should be traceable.
 - **Conservative by default**: Use lower bounds when data is ambiguous.
 - **Date the data**: Always note the year of each data source.
-- **Flag assumptions**: Every non-trivial assumption gets called out.
+- **Flag assumptions**: Tag with `[Assumption]`. Every non-trivial assumption gets called out.
+- **Tag unverified data**: Use `[Needs data]` for estimates without hard sources, `[Source: X]` for cited figures.
 - **No vanity TAMs**: If the TAM seems unreasonably large, challenge the market definition.
