@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero.png" alt="PM Pilot — The PM toolkit for Claude Code" width="720" />
+  <img src="assets/hero.png" alt="PM Pilot  - The PM toolkit for Claude Code" width="720" />
 </p>
 
 <p align="center">
