@@ -1,0 +1,22 @@
+{
+  "name": "pm-discovery",
+  "description": "Customer discovery that does not invent quotes. Turns one interview into a structured snapshot with every quote verified against the transcript, then runs the full cycle: frame, interview, synthesize, package.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "homepage": "https://github.com/mshadmanrahman/pm-pilot",
+  "repository": "https://github.com/mshadmanrahman/pm-pilot",
+  "license": "MIT",
+  "keywords": [
+    "product-discovery",
+    "customer-interviews",
+    "mom-test",
+    "opportunity-solution-tree",
+    "teresa-torres",
+    "user-research",
+    "synthesis",
+    "hallucination-guard"
+  ]
+}

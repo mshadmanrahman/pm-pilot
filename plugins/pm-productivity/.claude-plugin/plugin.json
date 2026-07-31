@@ -1,0 +1,18 @@
+{
+  "name": "pm-productivity",
+  "description": "Session and context management: session init, handoff documents, context compaction, parallel task orchestration.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "homepage": "https://github.com/mshadmanrahman/pm-pilot",
+  "repository": "https://github.com/mshadmanrahman/pm-pilot",
+  "license": "MIT",
+  "keywords": [
+    "handoff",
+    "context-management",
+    "orchestration",
+    "session"
+  ]
+}

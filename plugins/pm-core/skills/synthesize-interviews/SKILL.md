@@ -26,6 +26,25 @@ Accept input three ways:
 
 If input is a single interview, produce per-interview notes. If 3+ interviews, produce a cross-interview synthesis.
 
+### Preferred input: interview snapshots
+
+For multi-interview work, the best input is one Interview Snapshot per interview, produced by `/pm-discovery:interview-snapshot` and tagged `synthesis_status: single-interview-complete`. Reading structured snapshots instead of raw transcripts is what keeps quotes traceable at synthesis time.
+
+If the user hands over raw transcripts for 3+ interviews, say so once and offer the snapshot pass first:
+
+> "I can synthesize these directly, but collapsing per-interview reading into cross-interview synthesis is where quote accuracy degrades. Want me to run `/pm-discovery:interview-snapshot` on each one first? It takes one pass per interview and every quote comes back verified."
+
+Proceed with raw transcripts if they decline. Do not block.
+
+## Hallucination guard (required)
+
+Teresa Torres documented roughly a 30% quote hallucination rate when AI synthesizes interviews. Before delivering any synthesis that contains direct quotes:
+
+1. For every direct quote in the output, search the source transcript or snapshot for at least 60% of its words (exact match, case-insensitive).
+2. If the match fails, flag the quote inline with `[UNVERIFIED - edit before citing]` and keep going.
+3. Never silently repair a quote you cannot match. Mark it and move on.
+4. State the verified count in the output footer, for example `12/13 quotes verified against source`.
+
 ## Process
 
 ### Step 1: Extract Raw Observations

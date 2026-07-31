@@ -7,6 +7,25 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.0] - 2026-08-01
+
+### Added
+- **Plugin marketplace.** PM Pilot installs with one line: `claude plugin marketplace add mshadmanrahman/pm-pilot`. Five independent plugins: `pm-discovery`, `pm-core`, `pm-content`, `pm-dev`, `pm-productivity`.
+- **`pm-discovery` plugin** with two new skills:
+  - `interview-snapshot` turns one interview transcript into a structured five-section snapshot. Every direct quote is searched back against the source; unmatched quotes are labelled `[UNVERIFIED - edit before citing]` rather than silently repaired.
+  - `product-discovery` runs the full cycle: frame, interview, synthesize, package. Absorbed from the now-archived `discovery-md` repo, with its four templates and worked example bundled as `references/` so they actually load.
+- Hallucination guard and snapshot-first sequencing added to `synthesize-interviews`.
+- Frontmatter added to the five agents and four commands that had none.
+
+### Changed
+- **Breaking:** skills, agents, and commands moved under `plugins/<plugin>/`. Skills are now namespaced when installed as plugins, so `/meeting-prep` becomes `/pm-core:meeting-prep`. Manual-copy users need to update their paths.
+- `product-discovery` frontmatter dropped the unrecognized `version` and `author` fields and gained a trigger-rich description.
+
+### Fixed
+- `product-discovery` referred to four templates without ever giving a path, and the old install instructions copied only `SKILL.md`. Every template reference was dead on arrival. Templates are now bundled and referenced by path.
+
+---
+
 ## [1.1.0] — 2026-04-05
 
 ### Added

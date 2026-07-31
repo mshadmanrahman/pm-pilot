@@ -5,7 +5,7 @@ PM Pilot is a toolkit built by a PM, for PMs. Contributions that make product ma
 ## Ways to Contribute
 
 ### New Skills
-The most impactful contribution. A skill is a markdown file that teaches Claude Code a new capability. See `skills/` for examples.
+The most impactful contribution. A skill is a markdown file that teaches Claude Code a new capability. See `plugins/*/skills/` for examples.
 
 A good PM Pilot skill:
 - Solves a real PM pain point (not a theoretical one)
@@ -14,7 +14,7 @@ A good PM Pilot skill:
 - Uses MCP servers for external data when available
 
 ### Improved Agents
-Agents in `agents/` handle specialized tasks. If you've found a better pattern for code review, testing, or analysis, share it.
+Agents in `plugins/*/agents/` handle specialized tasks. If you've found a better pattern for code review, testing, or analysis, share it.
 
 ### Better Rules
 Rules in `rules/` enforce quality standards. If you have coding standards or workflow rules that help PMs, contribute them.

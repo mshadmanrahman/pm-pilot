@@ -1,0 +1,18 @@
+{
+  "name": "pm-dev",
+  "description": "Shipping discipline for PMs who code: TDD workflow, pre-commit verification loop, security review, research-before-build.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "homepage": "https://github.com/mshadmanrahman/pm-pilot",
+  "repository": "https://github.com/mshadmanrahman/pm-pilot",
+  "license": "MIT",
+  "keywords": [
+    "tdd",
+    "verification",
+    "security-review",
+    "code-quality"
+  ]
+}

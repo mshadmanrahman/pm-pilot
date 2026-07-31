@@ -2,3 +2,6 @@
 
 # Output artifacts
 output/
+
+# Tool caches
+.impeccable/

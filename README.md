@@ -10,8 +10,9 @@
   <a href="https://github.com/mshadmanrahman/pm-pilot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License" /></a>
   <a href="https://github.com/mshadmanrahman/pm-pilot/stargazers"><img src="https://img.shields.io/github/stars/mshadmanrahman/pm-pilot?style=flat-square" alt="Stars" /></a>
   <img src="https://img.shields.io/badge/claude_code-plugin-black?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Claude Code Plugin" />
-  <img src="https://img.shields.io/badge/skills-25-orange?style=flat-square" alt="25 Skills" />
+  <img src="https://img.shields.io/badge/skills-28-orange?style=flat-square" alt="28 Skills" />
   <img src="https://img.shields.io/badge/agents-5-purple?style=flat-square" alt="5 Agents" />
+  <img src="https://img.shields.io/badge/plugins-5-green?style=flat-square" alt="5 Plugins" />
 </p>
 
 <h2 align="center">Stop drowning in meeting prep, status updates, and Jira tickets.</h2>
@@ -24,6 +25,25 @@
 <p align="center">
   <img src="assets/demo.gif" alt="PM Pilot meeting prep demo" width="720" />
 </p>
+
+---
+
+## Discovery that does not invent quotes
+
+Teresa Torres measured roughly a **30% quote hallucination rate** when AI synthesizes customer interviews. That is the number that makes PMs stop trusting AI research, and most discovery tooling ignores it.
+
+`pm-discovery` refuses to. Every direct quote it produces gets searched back against the source transcript before delivery. Anything it cannot match is labelled `[UNVERIFIED - edit before citing]` rather than quietly smoothed over, and the synthesis footer states the count: `12/13 quotes verified against source`.
+
+It also enforces the sequence Teresa calls her single biggest anti-pattern to break. One interview at a time into a structured snapshot, then cross-interview synthesis reads the snapshots, never the raw transcripts.
+
+```
+/pm-discovery:interview-snapshot        # one transcript in, verified snapshot out
+/pm-discovery:product-discovery         # frame the problem (starts with a braindump)
+/pm-discovery:product-discovery interview   # Mom Test guide with bias warnings
+/pm-core:synthesize-interviews          # snapshots in, themes and opportunity tree out
+```
+
+You can paste a quote from the output into a stakeholder deck without re-reading the transcript to check it. That is the whole point.
 
 ---
 
@@ -72,71 +92,53 @@ If this looks useful, [star this repo](https://github.com/mshadmanrahman/pm-pilo
 
 ---
 
-## Three ways to use PM Pilot (pick your comfort level)
+## Install
 
-You don't need to start with the terminal. PM Pilot meets you where you are.
-
-### Level 1: Zero install - just copy and paste
-
-**Best for:** Your first 10 minutes. No setup, no downloads.
-
-Go to [claude.ai](https://claude.ai) (or ChatGPT). Paste the contents of any skill file from the [`skills/`](skills/) folder into your conversation. For example, paste the `meeting-prep` skill and then say "prep for my 1:1 with Sarah." The AI will walk you through it.
-
-You won't get the Jira/Slack integrations at this level, but you'll instantly see the structured thinking PM Pilot brings to your workflow.
-
-**Start here:** Open [`skills/pm-core/meeting-prep/SKILL.md`](skills/pm-core/meeting-prep/SKILL.md) and paste it into claude.ai.
-
-### Level 2: Claude Desktop app (5-minute setup, visual interface)
-
-**Best for:** PMs who want the full skill library without touching a terminal.
-
-1. Download the [Claude Desktop app](https://claude.ai/download)
-2. Drop the PM Pilot skill files into your Claude Desktop configuration
-3. Start using skills by name: "prep for my meeting with Sarah"
-
-This gives you persistent memory between sessions and access to all 25 skills through a friendly chat interface.
-
-### Level 3: Full power with Claude Code (terminal + integrations)
-
-**Best for:** PMs who want PM Pilot connected to Jira, Slack, Calendar, and GitHub - pulling real data, not just templates.
-
-This is where PM Pilot shines. Claude Code is a command-line tool (you type commands in a terminal window, like the one built into VS Code). It connects directly to your work tools through plugins called MCP servers.
-
-> **New to Claude Code entirely?** Start at [claudecodeguide.dev](https://claudecodeguide.dev) first. It's a friendly, jargon-free guide that gets you set up in under an hour. Come back here once you're running.
-
-#### Quick install
+One line. Nothing to clone, nothing to copy.
 
 ```bash
-# Clone PM Pilot
-git clone https://github.com/mshadmanrahman/pm-pilot.git
-cd pm-pilot
-
-# Create the directories Claude Code looks in
-mkdir -p ~/.claude/skills ~/.claude/rules ~/.claude/agents ~/.claude/commands ~/.claude/memory
-
-# Copy everything into place
-cp -r skills/* ~/.claude/skills/
-cp -r rules/* ~/.claude/rules/
-cp -r agents/* ~/.claude/agents/
-cp -r commands/* ~/.claude/commands/
-
-# Set up your memory file (this is where Claude remembers things about you)
-cp memory/MEMORY-TEMPLATE.md ~/.claude/memory/MEMORY.md
+claude plugin marketplace add mshadmanrahman/pm-pilot
 ```
 
-Don't have `git`? [Download it here](https://git-scm.com/downloads).
+Then install the plugin you want:
 
-Then open Claude Code in any directory and run the setup wizard:
+```bash
+claude plugin install pm-discovery@pm-pilot
+```
+
+In Claude Code or Cowork you can do the same from the UI: `/plugin marketplace add mshadmanrahman/pm-pilot`, then browse and install.
+
+### The five plugins
+
+| Plugin | What you get | Install |
+|---|---|---|
+| **pm-discovery** | Customer discovery with verified quotes. Interview snapshots, Mom Test guides, opportunity trees, stakeholder one-pagers. | `pm-discovery@pm-pilot` |
+| **pm-core** | PRDs, prioritization, market sizing, meeting prep, stakeholder intel, weekly status, critique. | `pm-core@pm-pilot` |
+| **pm-content** | Voice-consistent drafting, Substack long-form, market and competitor research. | `pm-content@pm-pilot` |
+| **pm-dev** | TDD workflow, verification loop, security review, research-before-build. | `pm-dev@pm-pilot` |
+| **pm-productivity** | Session init, handoff docs, context compaction, parallel orchestration. | `pm-productivity@pm-pilot` |
+
+Want everything? Install all five. Each one is independent, so start with the one that matches this week's problem.
+
+After installing, run the setup wizard once:
 
 ```
-/configure-pm-pilot
+/pm-core:configure-pm-pilot
 ```
 
 It asks a few questions (your company name, which tools you use) and configures everything automatically.
 
+> **New to Claude Code entirely?** Start at [claudecodeguide.dev](https://claudecodeguide.dev) first. It's a friendly, jargon-free guide that gets you set up in under an hour. Come back here once you're running.
+
+### No terminal? No problem
+
+Every skill is a plain markdown file. Open any `SKILL.md` under [`plugins/`](plugins/) and paste it into [claude.ai](https://claude.ai) or ChatGPT. You lose the Jira and Slack integrations, but the thinking works anywhere.
+
+Good one to start with: [`plugins/pm-core/skills/meeting-prep/SKILL.md`](plugins/pm-core/skills/meeting-prep/SKILL.md).
+
 ---
 
-## Connecting your work tools (Level 3 only)
+## Connecting your work tools
 
 PM Pilot works immediately. But it gets dramatically more useful when Claude Code can see your actual work tools. You connect these through **MCP servers** - think of them as plugins that let Claude read from Jira, Slack, and more.
 
@@ -367,7 +369,7 @@ PM Pilot's rules use only ~950 tokens total - they're not the culprit. If sessio
 ## Contributing
 
 PRs welcome. To add a skill:
-1. Create `skills/category/your-skill/SKILL.md`
+1. Create `plugins/<plugin>/skills/your-skill/SKILL.md`
 2. Follow the frontmatter format (name, description, origin, version) from any existing skill
 3. Include: clear triggers, step-by-step procedure, output format
 4. Keep under 200 lines

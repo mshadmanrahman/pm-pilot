@@ -1,0 +1,116 @@
+{
+  "name": "pm-pilot",
+  "description": "PM Pilot: product management skills for Claude Code, Cowork, and any Agent Skills compatible tool. Discovery with verified quotes, PRDs, prioritization, meeting prep, stakeholder comms.",
+  "owner": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "plugins": [
+    {
+      "name": "pm-discovery",
+      "source": "./plugins/pm-discovery",
+      "displayName": "PM Discovery",
+      "description": "Customer discovery that does not invent quotes. Turns one interview into a structured snapshot with every quote verified against the transcript, then runs the full cycle: frame, interview, synthesize, package.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Shadman Rahman",
+        "url": "https://github.com/mshadmanrahman"
+      },
+      "repository": "https://github.com/mshadmanrahman/pm-pilot",
+      "category": "product-management",
+      "keywords": [
+        "product-discovery",
+        "customer-interviews",
+        "mom-test",
+        "opportunity-solution-tree",
+        "teresa-torres",
+        "user-research",
+        "synthesis",
+        "hallucination-guard"
+      ]
+    },
+    {
+      "name": "pm-core",
+      "source": "./plugins/pm-core",
+      "displayName": "PM Core",
+      "description": "Everyday product management work: PRDs, prioritization, market sizing, meeting prep, stakeholder intel, weekly status, critique.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Shadman Rahman",
+        "url": "https://github.com/mshadmanrahman"
+      },
+      "repository": "https://github.com/mshadmanrahman/pm-pilot",
+      "category": "product-management",
+      "keywords": [
+        "prd",
+        "prioritization",
+        "market-sizing",
+        "meeting-prep",
+        "stakeholders",
+        "product-management"
+      ]
+    },
+    {
+      "name": "pm-content",
+      "source": "./plugins/pm-content",
+      "displayName": "PM Content",
+      "description": "Writing and market research skills: voice-consistent drafting, Substack long-form, competitive and market research.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Shadman Rahman",
+        "url": "https://github.com/mshadmanrahman"
+      },
+      "repository": "https://github.com/mshadmanrahman/pm-pilot",
+      "category": "content",
+      "keywords": [
+        "writing",
+        "market-research",
+        "substack",
+        "content"
+      ]
+    },
+    {
+      "name": "pm-dev",
+      "source": "./plugins/pm-dev",
+      "displayName": "PM Dev",
+      "description": "Shipping discipline for PMs who code: TDD workflow, pre-commit verification loop, security review, research-before-build.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Shadman Rahman",
+        "url": "https://github.com/mshadmanrahman"
+      },
+      "repository": "https://github.com/mshadmanrahman/pm-pilot",
+      "category": "development",
+      "keywords": [
+        "tdd",
+        "verification",
+        "security-review",
+        "code-quality"
+      ]
+    },
+    {
+      "name": "pm-productivity",
+      "source": "./plugins/pm-productivity",
+      "displayName": "PM Productivity",
+      "description": "Session and context management: session init, handoff documents, context compaction, parallel task orchestration.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "author": {
+        "name": "Shadman Rahman",
+        "url": "https://github.com/mshadmanrahman"
+      },
+      "repository": "https://github.com/mshadmanrahman/pm-pilot",
+      "category": "productivity",
+      "keywords": [
+        "handoff",
+        "context-management",
+        "orchestration",
+        "session"
+      ]
+    }
+  ]
+}

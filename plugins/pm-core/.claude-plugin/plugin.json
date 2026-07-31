@@ -1,0 +1,20 @@
+{
+  "name": "pm-core",
+  "description": "Everyday product management work: PRDs, prioritization, market sizing, meeting prep, stakeholder intel, weekly status, critique.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "homepage": "https://github.com/mshadmanrahman/pm-pilot",
+  "repository": "https://github.com/mshadmanrahman/pm-pilot",
+  "license": "MIT",
+  "keywords": [
+    "prd",
+    "prioritization",
+    "market-sizing",
+    "meeting-prep",
+    "stakeholders",
+    "product-management"
+  ]
+}
