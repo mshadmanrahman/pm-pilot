@@ -1,0 +1,18 @@
+{
+  "name": "tech-to-pm",
+  "description": "Turns engineering docs (architecture refs, API docs, ADRs, runbooks) into structured code-free context that PMs and designers can actually use.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Shadman Rahman",
+    "url": "https://github.com/mshadmanrahman"
+  },
+  "homepage": "https://github.com/mshadmanrahman/pm-pilot",
+  "repository": "https://github.com/mshadmanrahman/pm-pilot",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "technical-translation",
+    "onboarding",
+    "knowledge-base"
+  ]
+}
