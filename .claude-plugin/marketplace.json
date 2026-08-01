@@ -1,6 +1,6 @@
 {
   "name": "pm-pilot",
-  "description": "PM Pilot: product management skills for Claude Code, Cowork, and any Agent Skills compatible tool. Discovery with verified quotes, PRDs, prioritization, meeting prep, stakeholder comms.",
+  "description": "PM Pilot: product management skills for Claude Code, written to the standard Agent Skills format. Discovery with verified quotes, PRDs, prioritization, meeting prep, stakeholder comms.",
   "owner": {
     "name": "Shadman Rahman",
     "url": "https://github.com/mshadmanrahman"
