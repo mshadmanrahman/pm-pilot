@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <rect width="1280" height="640" fill="#0A0A0A"/>
+  <rect x="24" y="24" width="1232" height="592" fill="none" stroke="#242424" stroke-width="3"/>
+
+  <text x="76" y="118" font-family="JetBrains Mono" font-size="21" font-weight="700"
+        letter-spacing="4.5" fill="#4ADE80">PM PILOT</text>
+
+  <text x="76" y="248" font-family="Fraunces" font-size="78" font-weight="600"
+        letter-spacing="-2" fill="#FAFAFA">Customer discovery that</text>
+  <text x="76" y="332" font-family="Fraunces" font-size="78" font-weight="600"
+        letter-spacing="-2" fill="#FAFAFA">does not invent quotes.</text>
+
+  <line x1="76" y1="396" x2="1204" y2="396" stroke="#242424" stroke-width="2"/>
+
+  <text x="76" y="452" font-family="JetBrains Mono" font-size="23" fill="#8A8A8A">
+    <tspan fill="#D4D4D4">"we tried three tools before this"</tspan><tspan dx="24" fill="#4ADE80">&#10003; matched</tspan>
+  </text>
+  <text x="76" y="492" font-family="JetBrains Mono" font-size="23" fill="#8A8A8A">
+    <tspan fill="#D4D4D4">"onboarding took us a month"</tspan><tspan dx="24" fill="#FBBF24">[UNVERIFIED]</tspan>
+  </text>
+
+  <text x="76" y="578" font-family="Inter" font-size="22" font-weight="500" fill="#737373">
+    Every quote checked against the transcript &#183; 8 plugins &#183; 35 skills &#183; Claude Code
+  </text>
+</svg>
