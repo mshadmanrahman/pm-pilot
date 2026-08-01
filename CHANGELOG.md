@@ -7,6 +7,23 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.1.0] - 2026-08-01
+
+### Added
+- **Three repos folded in as plugins**, so there is one install surface instead of four separate repos:
+  - `crucible` (was `mshadmanrahman/crucible`, 8 stars): 17-persona decision council. `personas.md` and `benches.md` are now bundled under `references/`.
+  - `bug-shepherd` (was `mshadmanrahman/bug-shepherd`, 4 stars): 5 skills + the `reproduction-checker` agent. The 3 tracker adapters are bundled under `shepherd-sync/references/`.
+  - `tech-to-pm` (was `mshadmanrahman/tech-to-pm-translator`, 5 stars): engineering docs into PM-readable context.
+- Frontmatter added to the 5 bug-shepherd skills and the `reproduction-checker` agent, none of which had any.
+
+### Fixed
+- **Same dead-path class of bug as v2.0.0, in two more places.** `crucible` referenced `personas.md` and `benches.md` by bare filename, and bug-shepherd's commands pointed at `.claude/adapters/` and `.claude/agents/`, paths that only existed under the old manual-install layout. All now resolve to bundled `references/`, verified present in the installed plugin cache.
+
+### Notes
+- `ceremonies` and `morning-digest` were evaluated and **not** folded in. `ceremonies` is a 227-file Next.js application, not a skill. `morning-digest` is a 941-line Python script requiring the `gws` CLI, a Brave Search key, and a Telegram bot token, so it cannot work for anyone else without heavy setup.
+
+---
+
 ## [2.0.0] - 2026-08-01
 
 ### Added

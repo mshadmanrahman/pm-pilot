@@ -10,9 +10,9 @@
   <a href="https://github.com/mshadmanrahman/pm-pilot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License" /></a>
   <a href="https://github.com/mshadmanrahman/pm-pilot/stargazers"><img src="https://img.shields.io/github/stars/mshadmanrahman/pm-pilot?style=flat-square" alt="Stars" /></a>
   <img src="https://img.shields.io/badge/claude_code-plugin-black?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Claude Code Plugin" />
-  <img src="https://img.shields.io/badge/skills-28-orange?style=flat-square" alt="28 Skills" />
-  <img src="https://img.shields.io/badge/agents-5-purple?style=flat-square" alt="5 Agents" />
-  <img src="https://img.shields.io/badge/plugins-5-green?style=flat-square" alt="5 Plugins" />
+  <img src="https://img.shields.io/badge/skills-35-orange?style=flat-square" alt="35 Skills" />
+  <img src="https://img.shields.io/badge/agents-6-purple?style=flat-square" alt="6 Agents" />
+  <img src="https://img.shields.io/badge/plugins-8-green?style=flat-square" alt="8 Plugins" />
 </p>
 
 <h2 align="center">Stop drowning in meeting prep, status updates, and Jira tickets.</h2>
@@ -108,7 +108,7 @@ claude plugin install pm-discovery@pm-pilot
 
 In Claude Code or Cowork you can do the same from the UI: `/plugin marketplace add mshadmanrahman/pm-pilot`, then browse and install.
 
-### The five plugins
+### The eight plugins
 
 | Plugin | What you get | Install |
 |---|---|---|
@@ -117,8 +117,11 @@ In Claude Code or Cowork you can do the same from the UI: `/plugin marketplace a
 | **pm-content** | Voice-consistent drafting, Substack long-form, market and competitor research. | `pm-content@pm-pilot` |
 | **pm-dev** | TDD workflow, verification loop, security review, research-before-build. | `pm-dev@pm-pilot` |
 | **pm-productivity** | Session init, handoff docs, context compaction, parallel orchestration. | `pm-productivity@pm-pilot` |
+| **crucible** | Stress-test a high-stakes decision with a council of up to 17 personas that debate and return a verdict. | `crucible@pm-pilot` |
+| **bug-shepherd** | Zero-code bug triage. Check in parallel whether old bugs still reproduce, then sync to Jira, Linear, or GitHub. | `bug-shepherd@pm-pilot` |
+| **tech-to-pm** | Turn engineering docs into structured, code-free context PMs and designers can use. | `tech-to-pm@pm-pilot` |
 
-Want everything? Install all five. Each one is independent, so start with the one that matches this week's problem.
+Want everything? Install all eight. Each one is independent, so start with the one that matches this week's problem.
 
 After installing, run the setup wizard once:
 
