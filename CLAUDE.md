@@ -4,7 +4,7 @@ Product management toolkit for Claude Code. Designed for PMs who code.
 
 ## Skill Loading
 Load skills on demand by trigger, not at session start. Categories:
-- **PM Core**: meeting-prep, people-sync, weekly-status, deep-context, market-sizing, ask-company, dogfood, lenny-podcast, prd, prioritize, synthesize-interviews, critique
+- **PM Core**: meeting-prep, people-sync, weekly-status, deep-context, market-sizing, ask-company, dogfood, lenny-podcast, prd, prioritize, synthesize-interviews, critique, issue-tree
 - **Productivity**: session-init, handoff-doc, strategic-compact, orchestrator, manifest-reader, meta-observer
 - **Dev**: tdd-workflow, verification-loop, search-first, security-review
 - **Content**: market-research, writing-style, writing-substack

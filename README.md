@@ -10,7 +10,7 @@
   <a href="https://github.com/mshadmanrahman/pm-pilot/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="MIT License" /></a>
   <a href="https://github.com/mshadmanrahman/pm-pilot/stargazers"><img src="https://img.shields.io/github/stars/mshadmanrahman/pm-pilot?style=flat-square" alt="Stars" /></a>
   <img src="https://img.shields.io/badge/claude_code-plugin-black?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Claude Code Plugin" />
-  <img src="https://img.shields.io/badge/skills-35-orange?style=flat-square" alt="35 Skills" />
+  <img src="https://img.shields.io/badge/skills-36-orange?style=flat-square" alt="36 Skills" />
   <img src="https://img.shields.io/badge/agents-6-purple?style=flat-square" alt="6 Agents" />
   <img src="https://img.shields.io/badge/plugins-8-green?style=flat-square" alt="8 Plugins" />
 </p>
@@ -252,7 +252,7 @@ Five principles behind the design:
 ---
 
 <details>
-<summary><h2>Full skill reference (25 skills, 5 agents, 4 slash commands)</h2></summary>
+<summary><h2>Full skill reference (26 skills, 5 agents, 4 slash commands)</h2></summary>
 
 ### PM Core
 
@@ -270,6 +270,7 @@ Five principles behind the design:
 | `prioritize` | "rank these features" | Score with RICE, ICE, WSJF, MoSCoW, Kano, or Value/Effort |
 | `synthesize-interviews` | "synthesize these interviews" | Themes, pain points, and recommendations from raw interview notes |
 | `critique` | "critique this doc" | Pressure-test any document for logic gaps, assumptions, and completeness |
+| `issue-tree` | "structure this problem" | Split a messy problem into a Why/What/How tree, MECE-checked, before diagnosing or planning |
 
 ### Productivity
 
