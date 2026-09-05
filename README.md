@@ -370,7 +370,7 @@ PM Pilot's rules use only ~950 tokens total - they're not the culprit. If sessio
 |------|-------------|
 | **PM Pilot** | **You are here** - Claude Code configured for PMs |
 | [Discovery](https://github.com/mshadmanrahman/discovery-md) | AI product discovery for PMs |
-| [Bug Shepherd](https://github.com/mshadmanrahman/bug-shepherd) | Zero-code bug triage with parallel AI agents |
+| [Bug Shepherd](plugins/bug-shepherd) | Zero-code bug triage with parallel AI agents. Now a plugin in this repo |
 | [Tech-to-PM Translator](https://github.com/mshadmanrahman/tech-to-pm-translator) | Convert developer docs into PM-friendly knowledge bases |
 | [Morning Digest](https://github.com/mshadmanrahman/morning-digest) | AI-powered daily briefing from calendar, email, and Slack |
 | [ROOT-KG](https://github.com/mshadmanrahman/root-kg) | Your knowledge graph. Ask questions across all your notes, meetings, and emails |
@@ -394,4 +394,4 @@ MIT
 
 ---
 
-*Built by a PM with 14 years of product experience across startups and enterprise. 83 unique cloners in 2 weeks. Pure markdown, no build step, no dependencies.*
+*Built by a PM with 14 years of product experience across startups and enterprise. 97 clones from 39 unique cloners in the two weeks to 2026-09-03. Pure markdown, no build step, no dependencies.*

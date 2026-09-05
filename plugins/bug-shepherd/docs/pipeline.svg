@@ -70,7 +70,7 @@
       <!-- Tracker (external, pill) -->
       <rect x="440" y="40" width="240" height="56" rx="28" fill="rgba(51,51,51,0.03)" stroke="rgba(51,51,51,0.30)" stroke-width="1"/>
       <text x="560" y="64" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">Bug tracker</text>
-      <text x="560" y="80" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">jira &middot; linear &middot; github issues</text>
+      <text x="560" y="80" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">jira &#183; linear &#183; github issues</text>
 
       <!-- Sync (step) -->
       <rect x="460" y="140" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
@@ -80,7 +80,7 @@
       <!-- Triage (step) -->
       <rect x="180" y="260" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
       <text x="280" y="284" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-triage</text>
-      <text x="280" y="300" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">N parallel agents &times; live site</text>
+      <text x="280" y="300" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">N parallel agents &#215; live site</text>
 
       <!-- Start (step) -->
       <rect x="740" y="260" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
@@ -97,7 +97,7 @@
       <polygon points="840,344 940,400 840,456 740,400" fill="#ffffff" stroke="#333333" stroke-width="1"/>
       <text x="840" y="390" fill="#333333" font-size="11" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-review</text>
       <text x="840" y="404" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.04em">isolated subagent</text>
-      <text x="840" y="416" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">pass &middot; warn &middot; block</text>
+      <text x="840" y="416" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">pass &#183; warn &#183; block</text>
 
       <!-- Update tracker (end, oval) -->
       <rect x="170" y="504" width="220" height="56" rx="28" fill="rgba(51,51,51,0.03)" stroke="rgba(51,51,51,0.30)" stroke-width="1"/>
@@ -115,7 +115,7 @@
       <text x="840" y="648" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">appends learning-log.md</text>
 
       <!-- Annotation: no-reply outcome next to gate -->
-      <text x="40" y="404" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.02em">no reply &rarr;</text>
+      <text x="40" y="404" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.02em">no reply &#8594;</text>
       <text x="40" y="416" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.02em">bug stays open</text>
 
       <!-- ================= LEGEND ================= -->
