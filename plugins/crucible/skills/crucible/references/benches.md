@@ -176,6 +176,7 @@ The chair's only job in Solo mode is:
 4. Never mix benches by default. If the question genuinely spans two domains (e.g., a moonlight product that needs regulatory review), it is legitimate to add one specialist persona from a second bench. Name the reason in the intake restatement.
 5. Never drop a Core 6 persona from Decision or Existential mode. They are always in.
 6. Never skip the intake confirmation. One extra round trip is cheap; a mis-framed council is expensive.
+7. Name why each convened persona earns its spot, out loud, at intake. Every persona is a fixed subagent cost regardless of how short its answer runs (measured roughly 125K tokens per spin-up, 2026-09-05), so matching the bench name to the problem type is not enough on its own; state what this specific question needs from this specific persona.
 
 ---
 
