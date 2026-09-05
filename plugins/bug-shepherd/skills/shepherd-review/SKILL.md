@@ -9,24 +9,38 @@ A mandatory quality check before any bug fix is pushed. Ensures minimal, focused
 
 **Audience:** Developers who fixed a bug and want to verify before creating a PR. Also useful for PMs reviewing a developer's proposed fix.
 
+## Independent review, not self-review
+
+Run the actual review (step 3) in a fresh subagent, launched with the `Agent` tool, not in the session that investigated the bug and wrote the fix. That session already holds the investigation narrative and the reasoning that led to this specific diff. Asking it to also grade the diff means the same context that talked itself into the fix is now checking its own work. The audience note above already assumes a second set of eyes ("a developer... a PM reviewing a developer's fix"); this makes that true even on a solo session where the fixer and the reviewer are the same person.
+
+Give the subagent only:
+- the diff (`git diff main...HEAD`)
+- the ticket ID and title, not the investigation transcript
+- `review.tech_stack_rules`, `review.max_line_diff`, `review.require_evidence` from `.claude/triage.config.yaml`
+- `.claude/learning-log.md`, for Check 5
+
+It does not get the conversation that produced the fix. If a change can't be justified from the diff and the ticket alone, that's a real finding, not a gap in the subagent's context: either the diff needs a comment or it wasn't scoped as tightly as the fixer assumed.
+
 ## Workflow
 
-### 1. Load Configuration
+### 1. Load Configuration (current session)
 
 Read `.claude/triage.config.yaml` for:
 - `review.max_line_diff` — flag if net lines exceed this
 - `review.tech_stack_rules` — project-specific checks
 - `review.require_evidence` — whether before/after evidence is required
 
-### 2. Verify Active Session
+### 2. Verify Active Session (current session)
 
 Check for an active branch (not main/master):
 - If on main: "No active fix branch. Run /shepherd-start {TICKET-ID} first."
 - Read the ticket ID from the branch name (expects: `fix/{TICKET-ID}-{slug}`)
 
-### 3. Analyze the Diff
+### 3. Analyze the Diff (isolated subagent)
 
-Run `git diff main...HEAD` to see all changes in this branch.
+Run `git diff main...HEAD` to capture the diff, then launch the review in a new `Agent` call with only the four inputs listed above. Do not run Checks 1-5 below in the current session — that skips the isolation this section exists for.
+
+The subagent runs:
 
 #### Check 1: Subtraction Check
 Count net lines added vs. removed. If net additions > `review.max_line_diff`:
@@ -75,7 +89,7 @@ Read `.claude/learning-log.md` and check if:
 - This fix contradicts a documented lesson (bad, flag immediately)
 - A similar fix was attempted before and required iterations (warn about known pitfalls)
 
-### 4. Run Linting and Type Checks (if available)
+### 4. Run Linting and Type Checks (isolated subagent, same call as step 3)
 
 Detect the project's tooling and run applicable checks on changed files only:
 - JavaScript/TypeScript: `npx eslint {files}` and `npx tsc --noEmit`
@@ -83,7 +97,7 @@ Detect the project's tooling and run applicable checks on changed files only:
 - Go: `go vet {files}`
 - Other: Skip with note
 
-### 5. Generate Verdict
+### 5. Generate Verdict (isolated subagent; returns to the current session)
 
 Combine all check results:
 
@@ -112,7 +126,9 @@ Review: BLOCK ({count} blockers)
   Fix blockers before pushing.
 ```
 
-### 6. Generate PR Description
+### 6. Generate PR Description (current session)
+
+The current session holds the investigation narrative the subagent deliberately didn't get, so it writes the PR description, using the subagent's verdict plus its own knowledge of why the bug happened.
 
 If verdict is PASS or WARN, draft the PR description:
 
