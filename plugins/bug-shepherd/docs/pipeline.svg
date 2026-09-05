@@ -1,0 +1,139 @@
+<svg viewBox="0 0 1160 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bugshep-title bugshep-desc">
+      <title id="bugshep-title">How Bug Shepherd runs</title>
+      <desc id="bugshep-desc">Flowchart showing Bug Shepherd pulling a backlog from the tracker, then splitting into a bulk triage path where parallel agents check the live site and a human must approve any tracker write, and a single-ticket fix path where an isolated review subagent checks the diff before a learning-log entry feeds the next session.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#727272"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#D9553B"/></marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#FAFAFA"/>
+
+      <!-- ================= ARROWS (behind nodes) ================= -->
+
+      <!-- Tracker -> Sync -->
+      <line x1="560" y1="96" x2="560" y2="140" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="424" y="106" width="112" height="12" rx="2" fill="#FAFAFA"/>
+      <text x="480" y="115" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PULL OPEN BUGS</text>
+
+      <!-- Sync -> Triage (fanned left attach point x=520) -->
+      <path d="M 520 196 L 520 224 Q 520 232 512 232 L 288 232 Q 280 232 280 240 L 280 260"
+            fill="none" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="352" y="220" width="52" height="12" rx="2" fill="#FAFAFA"/>
+      <text x="378" y="229" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">BULK</text>
+
+      <!-- Sync -> Start (fanned right attach point x=600) -->
+      <path d="M 600 196 L 600 224 Q 600 232 608 232 L 832 232 Q 840 232 840 240 L 840 260"
+            fill="none" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="748" y="220" width="88" height="12" rx="2" fill="#FAFAFA"/>
+      <text x="792" y="229" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">ONE TICKET</text>
+
+      <!-- Triage -> Human Gate -->
+      <line x1="280" y1="316" x2="280" y2="344" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Start -> Review -->
+      <line x1="840" y1="316" x2="840" y2="344" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Human gate 1: before investigating (shepherd-start step 9), leader into Start's left edge -->
+      <line x1="672" y1="276" x2="740" y2="276" stroke="rgba(51,51,51,0.30)" stroke-width="0.8"/>
+      <rect x="548" y="268" width="124" height="16" rx="3" fill="rgba(51,51,51,0.02)" stroke="rgba(51,51,51,0.20)" stroke-width="0.8" stroke-dasharray="4,3"/>
+      <text x="610" y="279" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">BEFORE INVESTIGATING</text>
+
+      <!-- Human gate 2: before writing the fix (shepherd-start, Session Discipline), leader into Start's left edge -->
+      <line x1="672" y1="304" x2="740" y2="304" stroke="rgba(51,51,51,0.30)" stroke-width="0.8"/>
+      <rect x="560" y="296" width="112" height="16" rx="3" fill="rgba(51,51,51,0.02)" stroke="rgba(51,51,51,0.20)" stroke-width="0.8" stroke-dasharray="4,3"/>
+      <text x="616" y="307" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">BEFORE WRITING FIX</text>
+
+      <!-- Human Gate -> Update tracker (accent, most consequential decision) -->
+      <line x1="280" y1="456" x2="280" y2="504" stroke="#D9553B" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <rect x="248" y="470" width="64" height="12" rx="2" fill="#FAFAFA"/>
+      <text x="280" y="479" fill="#BE4229" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">APPROVE</text>
+
+      <!-- Review -> Push PR -->
+      <line x1="840" y1="456" x2="840" y2="504" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="800" y="470" width="80" height="12" rx="2" fill="#FAFAFA"/>
+      <text x="840" y="479" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PASS / WARN</text>
+
+      <!-- Human gate 3: before pushing (shepherd-review step 7, wait for user decision) -->
+      <rect x="792" y="488" width="96" height="12" rx="3" fill="#FAFAFA" stroke="rgba(51,51,51,0.20)" stroke-width="0.8" stroke-dasharray="4,3"/>
+      <text x="840" y="497" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">BEFORE PUSHING</text>
+
+      <!-- Push PR -> Learn -->
+      <line x1="840" y1="576" x2="840" y2="608" stroke="#727272" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Learn -> Start feedback loop (dashed, routed clear of the column) -->
+      <path d="M 940 636 L 1000 636 Q 1008 636 1008 628 L 1008 296 Q 1008 288 1000 288 L 940 288"
+            fill="none" stroke="#727272" stroke-width="1.1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+      <text x="1020" y="464" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.04em">FEEDS MEMORY</text>
+
+      <!-- ================= NODES ================= -->
+
+      <!-- Tracker (external, pill) -->
+      <rect x="440" y="40" width="240" height="56" rx="28" fill="rgba(51,51,51,0.03)" stroke="rgba(51,51,51,0.30)" stroke-width="1"/>
+      <text x="560" y="64" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">Bug tracker</text>
+      <text x="560" y="80" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">jira &middot; linear &middot; github issues</text>
+
+      <!-- Sync (step) -->
+      <rect x="460" y="140" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="560" y="164" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-sync</text>
+      <text x="560" y="180" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">writes backlog-live.md</text>
+
+      <!-- Triage (step) -->
+      <rect x="180" y="260" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="280" y="284" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-triage</text>
+      <text x="280" y="300" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">N parallel agents &times; live site</text>
+
+      <!-- Start (step) -->
+      <rect x="740" y="260" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="840" y="284" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-start</text>
+      <text x="840" y="300" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">loads learning-log.md</text>
+
+      <!-- Human Gate (diamond, FOCAL) -->
+      <polygon points="280,344 380,400 280,456 180,400" fill="#FDE8E4" stroke="#D9553B" stroke-width="1.2"/>
+      <text x="280" y="392" fill="#333333" font-size="11" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">Human review</text>
+      <text x="280" y="406" fill="#333333" font-size="11" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">gate</text>
+      <text x="280" y="420" fill="#BE4229" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.06em">MANDATORY</text>
+
+      <!-- Review (diamond) -->
+      <polygon points="840,344 940,400 840,456 740,400" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="840" y="390" fill="#333333" font-size="11" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-review</text>
+      <text x="840" y="404" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle" letter-spacing="0.04em">isolated subagent</text>
+      <text x="840" y="416" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="middle">pass &middot; warn &middot; block</text>
+
+      <!-- Update tracker (end, oval) -->
+      <rect x="170" y="504" width="220" height="56" rx="28" fill="rgba(51,51,51,0.03)" stroke="rgba(51,51,51,0.30)" stroke-width="1"/>
+      <text x="280" y="528" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">Update tracker</text>
+      <text x="280" y="544" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">cancel / reprioritize + comment</text>
+
+      <!-- Push PR (step) -->
+      <rect x="740" y="504" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="840" y="528" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">Push PR</text>
+      <text x="840" y="544" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">commit + push + PR</text>
+
+      <!-- Learn (step) -->
+      <rect x="740" y="608" width="200" height="56" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="840" y="632" fill="#333333" font-size="12" font-weight="600" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" text-anchor="middle">/shepherd-learn</text>
+      <text x="840" y="648" fill="#727272" font-size="9" font-family="'JetBrains Mono', monospace" text-anchor="middle">appends learning-log.md</text>
+
+      <!-- Annotation: no-reply outcome next to gate -->
+      <text x="40" y="404" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.02em">no reply &rarr;</text>
+      <text x="40" y="416" fill="#888888" font-size="8" font-family="'JetBrains Mono', monospace" text-anchor="start" letter-spacing="0.02em">bug stays open</text>
+
+      <!-- ================= LEGEND ================= -->
+      <line x1="40" y1="700" x2="1080" y2="700" stroke="rgba(51,51,51,0.10)" stroke-width="0.8"/>
+      <text x="40" y="716" fill="#727272" font-size="8" font-family="'JetBrains Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+
+      <rect x="40" y="732" width="24" height="12" rx="6" fill="rgba(51,51,51,0.03)" stroke="rgba(51,51,51,0.30)" stroke-width="1"/>
+      <text x="72" y="742" fill="#727272" font-size="8.5" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif">External / start-end</text>
+
+      <rect x="260" y="732" width="24" height="12" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="292" y="742" fill="#727272" font-size="8.5" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif">Step</text>
+
+      <polygon points="392,738 404,732 416,738 404,744" fill="#ffffff" stroke="#333333" stroke-width="1"/>
+      <text x="428" y="742" fill="#727272" font-size="8.5" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif">Decision</text>
+
+      <polygon points="540,738 552,732 564,738 552,744" fill="#FDE8E4" stroke="#D9553B" stroke-width="1.2"/>
+      <text x="576" y="742" fill="#727272" font-size="8.5" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif">Mandatory gate</text>
+
+      <line x1="720" y1="740" x2="748" y2="740" stroke="#727272" stroke-width="1.1" stroke-dasharray="5,4"/>
+      <text x="756" y="742" fill="#727272" font-size="8.5" font-family="Manrope, &quot;Avenir Next&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif">Feedback into memory</text>
+    </svg>

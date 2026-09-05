@@ -47,6 +47,16 @@ You can paste a quote from the output into a stakeholder deck without re-reading
 
 ---
 
+## Bug Shepherd never writes without you
+
+Bug Shepherd checks whether old bugs in your backlog still reproduce, using parallel agents against the live site instead of a person clicking through a hundred stale tickets. It reads a Jira, Linear, or GitHub Issues board, sorts each ticket into auto-cancel, needs-review, reproducible, or can't-determine, and only then touches the tracker. Nothing writes back without a person saying so, and as of commit `d6c3849` the review step that grades a fix no longer grades its own work: it runs in a separate subagent that never saw the investigation.
+
+The plugin stops and waits for you at four points: before it starts investigating a ticket, before it writes any fix code, before it pushes a PR, and before it batch-cancels tickets a triage run flagged as stale.
+
+<img src="plugins/bug-shepherd/docs/pipeline.svg" alt="Bug Shepherd pipeline: sync, triage, start, review, learn, with four human approval gates" width="900">
+
+---
+
 ## Who is this for?
 
 **You're a PM who's tried ChatGPT but nothing beyond that.** You paste meeting notes into it sometimes. Maybe you've used a company chatbot. But you keep thinking: there has to be a better way to handle all the prep, the status reports, the context-gathering that eats half your week. You just haven't found it yet. PM Pilot is that better way - and you don't need to be technical to start using it.
