@@ -1,0 +1,157 @@
+# Bug Shepherd configuration
+#
+# Copy this file to .claude/triage.config.yaml in your project, then fill in
+# the four values under `project`. Everything else has a working default.
+#
+# Defaults are deliberately cautious: auto_cancel_rules ships empty, so no
+# ticket can ever be closed without you naming it. Loosen it once you trust
+# the verdicts on your own backlog.
+
+project:
+  # Shown in report headers. Any string.
+  name: ""
+
+  # The deployed site the reproduction agents check bugs against.
+  # Must be reachable without login, or the agents return CANNOT_DETERMINE.
+  live_url: ""
+
+  # One of: jira | linear | github-issues
+  tracker: ""
+
+  # Jira: the project key, e.g. "PROJ"
+  # Linear: the team slug from the URL, e.g. "engineering"
+  # GitHub Issues: "owner/repo"
+  tracker_project: ""
+
+reproduction:
+  # How many reproduction agents run at once.
+  parallel_agents: 5
+
+  # Bugs handed to each agent. parallel_agents x bugs_per_agent should be
+  # at least as large as the {count} you pass to /shepherd-triage.
+  bugs_per_agent: 6
+
+  # "priority" checks Highest first. "oldest" checks by created date.
+  triage_order: priority
+
+  # Widths in px that each bug is checked at. Every extra viewport multiplies
+  # the screenshots taken, which is the main cost driver of a triage run.
+  # Two is usually enough to separate a mobile bug from a desktop one.
+  viewports: [390, 1440]
+
+  # Hard cap per bug. An agent that passes this returns CANNOT_DETERMINE.
+  timeout_per_bug: 90
+
+  # Max screenshots an agent may take per bug. Prefer a DOM or text read
+  # where it answers the question; images are for visual bugs only.
+  max_screenshots_per_bug: 3
+
+safety:
+  # A bug touched by a human in this window is skipped, never triaged.
+  recent_activity_days: 30
+
+  # Skip any bug that already has an assignee. Someone owns it.
+  skip_assigned: true
+
+  # Bugs whose summary or description matches these always go to human
+  # review, even when an agent could not reproduce them. This list exists
+  # because headless browsers are bad at exactly these things.
+  never_auto_cancel:
+    - scroll
+    - touch
+    - swipe
+    - drag
+    - hover
+    - animation
+    - transition
+    - rtl
+    - right-to-left
+    - viewport
+    - breakpoint
+    - accessibility
+    - screen reader
+    - payment
+    - checkout
+    - data loss
+    - security
+
+  # Patterns that make a not-reproduced bug a strong cancel candidate.
+  # EMPTY BY DEFAULT ON PURPOSE. Nothing is proposed for cancellation until
+  # you add rules here. Even then, every cancellation needs your approval.
+  auto_cancel_rules: []
+  # Example, once you trust it on your own backlog:
+  # auto_cancel_rules:
+  #   - name: "Stale UI cosmetic"
+  #     match: "typo|alignment|spacing|padding"
+  #     older_than_days: 180
+
+  # Ceiling on how many tickets one approval can close. Above this, Bug
+  # Shepherd splits the batch and asks again.
+  max_auto_cancel_batch: 10
+
+review:
+  # Net added lines above this get a WARN. Bug fixes should be small.
+  max_line_diff: 50
+
+  # Require before/after evidence in the PR description.
+  require_evidence: true
+
+  # Project rules checked against the diff.
+  #
+  # A rule with only `match` is a regex tested against the diff text, which
+  # is safe and needs no permission.
+  #
+  # A rule with `check` runs a shell command. Bug Shepherd prints every such
+  # command and asks before running any of them, every run. Only add commands
+  # you would type yourself, and remember this file usually gets committed:
+  # anyone who can push to your repo can edit what runs here.
+  tech_stack_rules: []
+  # Example:
+  # tech_stack_rules:
+  #   - name: "No conditional mount after hydration"
+  #     match: "useEffect\\(.*setMounted"
+  #     severity: warn
+  #     message: "Conditional mounting after hydration has been blocked in review before."
+
+  # Set true only if you want `check:` shell rules to run without the
+  # per-run confirmation. Leave false unless you own every line of this file.
+  allow_shell_checks: false
+
+team:
+  # Optional. Warns if your git identity does not match, so fixes are not
+  # committed under the wrong account.
+  git_email: ""
+
+  # Optional. Tracker account the triage results are attributed to, for the
+  # audit trail. Leave empty to leave assignees untouched.
+  # Jira: use lookupJiraAccountId to find this.
+  assignee_id: ""
+
+# Tracker-specific settings. Keep only the block matching project.tracker.
+tracker_config: {}
+
+# --- Jira ---
+# tracker_config:
+#   cloud_id: ""                  # From your Atlassian admin
+#   cancelled_label: "cancelled"
+#   triage_label: "triaged"
+#   bug_type_name: "Bug"          # Issue type name, case-sensitive
+
+# --- Linear ---
+# tracker_config:
+#   team_id: ""                   # Linear team UUID
+#   cancelled_state: "Cancelled"
+#   triage_label: "triaged"
+#   bug_label: "bug"
+
+# --- GitHub Issues ---
+# tracker_config:
+#   repo: "owner/repo"
+#   bug_label: "bug"
+#   triage_label: "triaged"
+#   priority_labels:
+#     critical: "priority: critical"
+#     high: "priority: high"
+#     medium: "priority: medium"
+#     low: "priority: low"
+#   use_milestones: true

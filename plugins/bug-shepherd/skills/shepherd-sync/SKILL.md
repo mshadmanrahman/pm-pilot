@@ -1,11 +1,14 @@
 ---
 name: shepherd-sync
-description: Sync triage results back into Jira, Linear, or GitHub Issues using the matching tracker adapter. Use after a triage run to update the tracker.
+description: Pull all open bugs from Jira, Linear, or GitHub Issues into a local backlog file. Read-only. Use before a triage run, or when the local backlog is stale.
 ---
 
 # /shepherd-sync — Backlog Synchronization
 
 Pull all open bugs from your tracker into a local backlog file for offline triage.
+
+This command only reads. It never writes to the tracker. Tracker writes happen
+in `/shepherd-triage`, behind the approval gate.
 
 ## Workflow
 
@@ -13,11 +16,23 @@ Pull all open bugs from your tracker into a local backlog file for offline triag
 
 Read `.claude/triage.config.yaml` to get tracker type, project key, and team settings.
 
-If config file is missing:
-```
-"Config not found. Run the Bug Shepherd installer or create .claude/triage.config.yaml manually."
-"See: https://github.com/YOUR_USERNAME/bug-shepherd#configuration"
-```
+**If the config file is missing, create it before doing anything else.** This is
+the first-run path for every Bug Shepherd command, so do it here rather than
+sending the user away:
+
+1. Copy the template bundled with this plugin to `.claude/triage.config.yaml`.
+   It lives at `templates/triage.config.yaml` in the bug-shepherd plugin
+   directory, and it ships with cautious defaults for every setting.
+2. Ask the user for the four values the template leaves blank under `project`:
+   `name`, `live_url`, `tracker` (jira, linear or github-issues), and
+   `tracker_project`. Ask for all four in one message.
+3. Uncomment the `tracker_config` block matching their tracker and fill in what
+   it needs.
+4. Show them the finished file and say where it is, then continue.
+
+Do not invent values, and do not proceed with a partial config. A wrong
+`live_url` makes every reproduction verdict meaningless, and a wrong
+`tracker_project` points the write path at the wrong board.
 
 ### 2. Detect Tracker and Load Adapter
 
