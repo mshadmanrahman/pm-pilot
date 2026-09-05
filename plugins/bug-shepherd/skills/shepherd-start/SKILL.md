@@ -1,6 +1,6 @@
 ---
 name: shepherd-start
-description: "Set up Bug Shepherd for a project: create the triage config, identify the tracker, and establish the backlog baseline. Use when starting bug triage on a new project."
+description: "Open a focused investigation session for one bug: pull its full tracker detail, load past lessons and triage history, and produce an investigation plan. Use when starting work on a single ticket, after /shepherd-sync has built the backlog."
 ---
 
 # /shepherd-start {TICKET-ID} — Bug Investigation Session
@@ -17,7 +17,9 @@ Begin a focused investigation session for a single bug. This command sets up con
 
 ### 1. Load Configuration
 
-Read `.claude/triage.config.yaml` for project settings.
+Read `.claude/triage.config.yaml` for project settings. If it does not exist, run
+the first-run setup in `/shepherd-sync` step 1 to create it from the bundled
+template, then continue.
 
 ### 2. Pre-Flight Checks
 

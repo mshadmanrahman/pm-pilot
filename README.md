@@ -51,9 +51,29 @@ You can paste a quote from the output into a stakeholder deck without re-reading
 
 Bug Shepherd checks whether old bugs in your backlog still reproduce, using parallel agents against the live site instead of a person clicking through a hundred stale tickets. It reads a Jira, Linear, or GitHub Issues board, sorts each ticket into auto-cancel, needs-review, reproducible, or can't-determine, and only then touches the tracker. Nothing writes back without a person saying so, and as of commit `d6c3849` the review step that grades a fix no longer grades its own work: it runs in a separate subagent that never saw the investigation.
 
-The plugin stops and waits for you at four points: before it starts investigating a ticket, before it writes any fix code, before it pushes a PR, and before it batch-cancels tickets a triage run flagged as stale.
+The plugin stops and waits for you at four points: before it starts investigating a ticket, before it writes any fix code, before it pushes a PR, and before it batch-cancels tickets a triage run flagged as stale. On that last gate it echoes the exact list of tickets first, and one approval never closes more than `safety.max_auto_cancel_batch` of them.
 
 <img src="plugins/bug-shepherd/docs/pipeline.svg" alt="Bug Shepherd pipeline: sync, triage, start, review, learn, with four human approval gates" width="900">
+
+### Setting it up
+
+Run `/bug-shepherd:shepherd-sync` first. If you have no config yet it copies [`plugins/bug-shepherd/templates/triage.config.yaml`](plugins/bug-shepherd/templates/triage.config.yaml) into `.claude/triage.config.yaml`, asks you for four values, and fills in the rest with cautious defaults:
+
+| You provide | What it is |
+|---|---|
+| `project.name` | Anything. It goes in report headers. |
+| `project.live_url` | The deployed site the agents check bugs against. It has to load without a login. |
+| `project.tracker` | `jira`, `linear`, or `github-issues` |
+| `project.tracker_project` | Jira project key, Linear team slug, or `owner/repo` |
+
+Every other setting is documented inline in the template. Two defaults are worth knowing about, because they are the ones that keep a first run safe:
+
+- **`safety.auto_cancel_rules` ships empty.** Until you add a rule, no ticket is ever proposed for automatic cancellation, and every not-reproduced bug lands in the pile you read yourself.
+- **`review.allow_shell_checks` ships false.** Review rules that run a shell command are printed and confirmed with you each run, because that config file usually lives in the repo where anyone who can push can edit it.
+
+The reproduction agent runs on a fixed tool allowlist: it can browse and read, and it has no shell, no file writes, and no way to reach the tracker. It reads bug reports written by other people, so it treats their text as a description of a bug and never as an instruction to itself. A ticket that declares its own verdict gets flagged for you rather than believed.
+
+Two more things worth knowing before your first run. Cost sits mostly in screenshots, so the agents read the DOM first and only capture an image when the look of the thing is the question, capped by `reproduction.max_screenshots_per_bug`. And `/shepherd-sync` and `/shepherd-triage` need only a tracker connection and a browser, while `/shepherd-start` and `/shepherd-review` work on a git branch and a diff, so a PM with no checkout gets the triage half and can hand the rest to a developer.
 
 ---
 

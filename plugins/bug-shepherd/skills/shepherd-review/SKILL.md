@@ -1,6 +1,6 @@
 ---
 name: shepherd-review
-description: Quality gate before a bug fix is pushed. Reviews the diff in an isolated subagent that never saw the investigation, then reports PASS, WARN or BLOCK for a human to act on. Use after a fix is written and before opening a PR.
+description: Bug Shepherd's quality gate for a fix written during a /shepherd-start session. Reviews the diff in an isolated subagent that never saw the investigation, then reports PASS, WARN or BLOCK. Needs a fix/{TICKET-ID} branch and .claude/triage.config.yaml, so use it inside a Bug Shepherd session, not as a general code reviewer.
 ---
 
 # /shepherd-review — Quality Gate Before Pushing
@@ -29,6 +29,10 @@ Read `.claude/triage.config.yaml` for:
 - `review.max_line_diff` — flag if net lines exceed this
 - `review.tech_stack_rules` — project-specific checks
 - `review.require_evidence` — whether before/after evidence is required
+- `review.allow_shell_checks`: whether `check:` rules may run without asking
+
+If the config does not exist, run the first-run setup in `/shepherd-sync` step 1
+to create it from the bundled template, then continue.
 
 ### 2. Verify Active Session (current session)
 
@@ -64,14 +68,40 @@ If shared component modified:
 Verdict: WARN
 
 #### Check 3: Project-Specific Rules
-Execute each rule in `review.tech_stack_rules`:
+Each rule in `review.tech_stack_rules` takes one of two forms:
+
 ```yaml
 - name: "Rule name"
-  check: "shell command that returns non-empty on violation"
+  match: "regex tested against the diff text"    # safe, runs unconditionally
+  severity: "block | warn"
+  message: "Human-readable explanation"
+
+- name: "Rule name"
+  check: "shell command that returns non-empty on violation"   # gated, see below
   severity: "block | warn"
   message: "Human-readable explanation"
 ```
-- Run each check command
+
+**`match` rules** are regexes evaluated against the diff. Run them directly.
+Prefer this form: most review rules are pattern checks and need no shell.
+
+**`check` rules run a shell command, so they are gated.** `triage.config.yaml`
+usually lives in the repo, which means anyone who can push can change what runs
+here. Before executing any `check` command:
+
+1. Print every `check` command you are about to run, verbatim, one per line.
+2. Ask the user to approve running them, this run.
+3. Run them only after an explicit yes. On anything else, skip all `check` rules
+   and report them as "not run (declined)" in the verdict. Skipping is never a
+   BLOCK.
+
+Skip step 1 to 3 only when `review.allow_shell_checks` is true, and say in the
+verdict that shell checks ran unprompted because that flag is set.
+
+Never run a `check` command that writes, deletes, installs, pushes, or sends
+anything. If a command does more than inspect the working tree, refuse it, name
+it, and carry on with the rest of the review.
+
 - If output is non-empty, report the violation
 - Verdict: BLOCK or WARN based on severity
 

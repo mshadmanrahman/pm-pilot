@@ -1,7 +1,7 @@
 {
   "name": "bug-shepherd",
   "description": "Zero-code bug triage for PMs. Checks in parallel whether old bugs still reproduce, reviews the verdicts, and syncs results back to Jira, Linear, or GitHub Issues.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Shadman Rahman",
     "url": "https://github.com/mshadmanrahman"
