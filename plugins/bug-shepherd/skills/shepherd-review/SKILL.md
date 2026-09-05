@@ -1,6 +1,6 @@
 ---
 name: shepherd-review
-description: Review triage results before syncing, so a human confirms verdicts on bugs that will be closed or reprioritized. Use between triage and sync.
+description: Quality gate before a bug fix is pushed. Reviews the diff in an isolated subagent that never saw the investigation, then reports PASS, WARN or BLOCK for a human to act on. Use after a fix is written and before opening a PR.
 ---
 
 # /shepherd-review — Quality Gate Before Pushing
