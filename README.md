@@ -30,7 +30,7 @@
 
 ## Discovery that does not invent quotes
 
-Teresa Torres measured roughly a **30% quote hallucination rate** when AI synthesizes customer interviews. That is the number that makes PMs stop trusting AI research, and most discovery tooling ignores it.
+In October 2025, Teresa Torres hand-checked the quotes ChatGPT produced from her own customer interviews. About **30% were either incorrect summaries of what the participant said or were not in the source material at all** ([Product Talk](https://www.producttalk.org/customer-interview-analysis-ai/)). One practitioner, one model, sample size not stated, so treat it as the sharpest available observation rather than a measured rate. It is still the only public number on this, and most discovery tooling ignores it.
 
 `pm-discovery` refuses to. Every direct quote it produces gets searched back against the source transcript before delivery. Anything it cannot match is labelled `[UNVERIFIED - edit before citing]` rather than quietly smoothed over, and the synthesis footer states the count: `12/13 quotes verified against source`.
 

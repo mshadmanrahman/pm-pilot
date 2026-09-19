@@ -38,7 +38,7 @@ Proceed with raw transcripts if they decline. Do not block.
 
 ## Hallucination guard (required)
 
-Teresa Torres documented roughly a 30% quote hallucination rate when AI synthesizes interviews. Before delivering any synthesis that contains direct quotes:
+Teresa Torres hand-checked ChatGPT's quotes against her own interview transcripts in October 2025 and found about 30% were incorrect summaries or absent from the source (one practitioner, one model, sample size not stated). Before delivering any synthesis that contains direct quotes:
 
 1. For every direct quote in the output, search the source transcript or snapshot for at least 60% of its words (exact match, case-insensitive).
 2. If the match fails, flag the quote inline with `[UNVERIFIED - edit before citing]` and keep going.
