@@ -19,8 +19,8 @@
 
 ## People
 
-- **Leif** - Search & Discovery MD. Key stakeholder for lead analysis. Prefers data-driven arguments. Spelling: L-E-I-F.
-- **Nina** - HR Business Partner. Handles career level assessments and promotion cases. Responsive on Slack.
+- **Alex** - Head of Search & Discovery. Key stakeholder for lead analysis. Prefers data-driven arguments.
+- **Sam** - HR Business Partner. Handles career level assessments and promotion cases. Responsive on Slack.
 
 ## Key Context
 - Git email: `user@company.com`
