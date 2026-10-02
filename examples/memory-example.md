@@ -5,7 +5,6 @@
 ### Lead Scoring Simulator
 - **Path:** `_work/lead-scoring-simulator/`
 - **GitHub:** https://github.com/user/lead-scoring-simulator (private)
-- **Live URL:** https://lead-scoring-sim.netlify.app (password: keystone)
 - **Netlify site ID:** `5358855d-b35f-4fc0-98eb-aecc60703dc4`
 - **Deploy:** `netlify deploy --prod --dir=app --site=5358855d-b35f-4fc0-98eb-aecc60703dc4`
 - **Architecture:** Single HTML file + SVG map, no build step
