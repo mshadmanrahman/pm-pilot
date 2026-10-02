@@ -184,6 +184,10 @@ Every skill is a plain markdown file. Open any `SKILL.md` under [`plugins/`](plu
 
 Good one to start with: [`plugins/pm-core/skills/meeting-prep/SKILL.md`](plugins/pm-core/skills/meeting-prep/SKILL.md).
 
+### Also on Agensi
+
+Three skills are listed free on Agensi as single-skill downloads: [Crucible](https://www.agensi.io/skills/crucible), [Tech to PM Translator](https://www.agensi.io/skills/tech-to-pm-translator) and [Product Discovery](https://www.agensi.io/skills/product-discovery-for-pms-without-a-researcher). They are the same files as in this repo.
+
 ---
 
 ## Connecting your work tools
