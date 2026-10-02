@@ -23,7 +23,6 @@
 - **Nina** - HR Business Partner. Handles career level assessments and promotion cases. Responsive on Slack.
 
 ## Key Context
-- Vercel preview password: `kegstage`
 - Git email: `user@company.com`
 - Doppler not installed locally; use Vercel preview deploys for env var testing
 - Session discipline: one ticket per session, `/clear` between tickets
