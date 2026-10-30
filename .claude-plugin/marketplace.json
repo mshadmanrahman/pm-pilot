@@ -119,7 +119,7 @@
       "source": "./plugins/crucible",
       "displayName": "Crucible",
       "description": "Stress-test a high-stakes decision with a council of up to 17 personas that debate, rebut, and return a verdict. For product direction, strategy, and career calls where being wrong is expensive.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "license": "MIT",
       "author": {
         "name": "Shadman Rahman",

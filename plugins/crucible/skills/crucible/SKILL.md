@@ -160,6 +160,23 @@ The chair reads all openings and rebuttals, writes the transcript file, and issu
 
 Use `date -u +"%Y-%m-%d"` for the filename date.
 
+**Verdict gate (Decision and Existential modes).** Before writing the verdict, the chair runs five checks against the openings and rebuttals. Each check passes or fails. The first failing check, in the order below, sets the verdict.
+
+| # | Check | Passes when | If it fails |
+|---|---|---|---|
+| 1 | Real demand | Someone specific would be upset if this vanished. Interest, likes and "sounds useful" are not demand. | EXPLORE |
+| 2 | Cited claims | Every claim the verdict rests on cites a URL or file, or is marked UNKNOWN. | EXPLORE |
+| 3 | Survives the Skeptic | The kill arguments (platform risk, "a feature, not a company", the Contrarian's strongest line) have an answer. | KILL |
+| 4 | Narrowest wedge | The smallest version someone would pay for, or act on, this week is named. | REFRAME |
+| 5 | 7-day test | A test exists with an owner, dates, a number that means pass, and what stops if it fails. | REFRAME |
+
+- **EXPLORE:** the council argued without enough facts. Name the missing facts and where to find them, then rerun. Do not write a next action beyond the search.
+- **KILL from check 3:** write the kill reason. No next action.
+- **REFRAME from checks 4 or 5:** cut the scope to the paid wedge and define the 7-day test.
+- **PROCEED:** all five pass.
+
+The chair never says "interesting". Every verdict is a position plus the evidence that would flip it. Checks adapted from the CEO-bot gate in gstack by Garry Tan.
+
 **Inline verdict format** (this is what the user sees in the chat):
 
 ```
@@ -168,16 +185,21 @@ Use `date -u +"%Y-%m-%d"` for the filename date.
 **Question:** {restated question}
 **Bench:** {n} personas convened
 
-**Verdict:** PROCEED | REFRAME | KILL
+**Verdict:** PROCEED | REFRAME | KILL | EXPLORE
+**Gate:** 1 demand {pass/fail} · 2 cited {pass/fail} · 3 skeptic {pass/fail} · 4 wedge {pass/fail} · 5 test {pass/fail}
 **Reasoning:** {2-3 sentences tying to the strongest arguments}
 
 **First Principles vs Expansionist:** {1-2 sentences naming where bedrock and 100x landed; mandatory in Decision and Existential modes}
 
 **Strongest unresolved objection:** {one sentence}, from {Persona name}
 
-**If PROCEED:** Next action: {one concrete step}
-**If REFRAME:** New framing: {one sentence}
+**If PROCEED:** 7-day test: {owner, dates, pass number, what stops if it fails}
+**If REFRAME:** Paid wedge: {one sentence}. 7-day test: {owner, dates, pass number, what stops if it fails}
 **If KILL:** Failure mechanism: {one sentence}
+**If EXPLORE:** Missing facts: {what to find and where}, then rerun
+
+**Would change my mind:** {the one piece of evidence that flips this verdict}
+**Citations:** {URLs or file paths the verdict rests on; UNKNOWN where none exists}
 
 **Goals check:** {Goals Check finding, one line, if activated}
 
@@ -233,6 +255,7 @@ Load `references/personas.md` and `references/benches.md` at intake. They are th
 
 ## Changelog
 
+- **2026-10-30:** Added the five-check verdict gate (demand, cited claims, Skeptic, narrowest wedge, 7-day test), adapted from the CEO-bot gate in gstack by Garry Tan. New EXPLORE verdict for runs that lack facts. Verdict block now carries the gate result, a 7-day test with pass/fail, "would change my mind" and citations.
 - **2026-09-05:** Added a measured cost figure to the bench creep anti-pattern (roughly 125K tokens per subagent spin-up, fixed regardless of task size). Added a chair rule in `references/benches.md`: name why each convened persona earns its spot, not just which bench matched the problem type.
 - **2026-05-23:** Promoted First Principles (new) and Expansionist (replaces Ambition Stretcher) to Core, making it Core 6. Mandatory First Principles vs Expansionist duel in Decision and Existential modes. Renamed 9 personas for plain-English clarity (Steelman→Advocate, Pre-mortem Pessimist→Pre-mortem, Archivist→Track Record, Values Compass→Goals Check, Downside Floor→Worst Case Cost, Competitor/Mirror→Competitor, Second-Order Thinker→Consequences, Naive Outsider→Outsider, Operator/Builder→Operator). Added Solo mode for single-lens exploration. Renamed Quick mode to Council mode and shifted its bench to the LLM Council 5 (Contrarian, First Principles, Expansionist, Outsider, Operator). Anonymized rebuttals in Phase 3.
 - **2026-04-19:** Added motivated-convening guardrail. Added Track Record (then Archivist) ownership-classification guardrails after Run 1 volitional-inference error.
